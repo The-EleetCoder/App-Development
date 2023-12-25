@@ -1,0 +1,7 @@
+React is platform independent. Its actually React Dom library that adds the web support. Similarly, its React Native that adds the app support!
+Its only the Jsx code that gets compiled, not the javascript logic.
+We'll be using Expo as its much easier to build react native apps using Expo.
+Install Node.js
+Use 'npx create-expo-app' to create a new app.
+Run 'npm start' to start your app. 
+Install Expo go on your device and scan the QR code.
