@@ -1,0 +1,6 @@
+There is no css in React Native. Instead there are inline styles and StyleSheet Objects.
+App.js is the root component and its the first point of contact for the expo.
+There are some basic components (ex. the html elements like div and h1 etc.) that we use here. We have to import every component that we use.
+we use the style prop and pass a js object in it to do the styling.
+Flexbox is enabled for the View component by default and the direction set by-default is column. 
+The flex property is applied to the items that are inside of the flexbox.
