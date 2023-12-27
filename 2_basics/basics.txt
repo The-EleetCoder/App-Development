@@ -6,3 +6,4 @@ Flexbox is enabled for the View component by default and the direction set by-de
 The flex property is applied to the items that are inside of the flexbox.
 Styles dont cascade in native. for eg. if we set color: 'white' to a parent element <view> in <View><Text></Text></View>, this has no effect on the Text component, unlike in css.
 <ScrollView> is used when there are few or limited number of list items because it renders each and every list item, even when its not visible to the user, therefore leading to performance issues. So, in such cases when the list is dynamic, or has many items in it, we use a <FlatList> component.
+If we want to make our component do something when we press it, then we need to wrap it inside the <Pressable onPress={}> component.
