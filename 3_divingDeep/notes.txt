@@ -1,0 +1,1 @@
+If we want to add a shadow, we can use the elevation property, but its only specific to android. For ios, we can use the other shadow properties.
