@@ -1,1 +1,2 @@
 If we want to add a shadow, we can use the elevation property, but its only specific to android. For ios, we can use the other shadow properties.
+We Wrap our content in the <SafeAreaView> component so that our content dosen't get hidden by the notch. Do npm install react-native-safe-area-context.
