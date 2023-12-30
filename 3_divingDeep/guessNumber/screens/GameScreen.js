@@ -3,6 +3,8 @@ import Title from "../components/ui/Title";
 import { useState, useEffect } from "react";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import Card from "../components/ui/Card";
+import InstructionText from "../components/ui/InstructionText";
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -18,18 +20,14 @@ let minBoundary = 1;
 let maxBoundary = 100;
 
 const GameScreen = ({ userNumber, onGameOver }) => {
-  const initialGuess = generateRandomBetween(
-    1,
-    100,
-    userNumber
-  );
+  const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
-  useEffect(()=>{
-    if(currentGuess === userNumber){
+  useEffect(() => {
+    if (currentGuess === userNumber) {
       onGameOver();
     }
-  },[currentGuess, userNumber, onGameOver]);
+  }, [currentGuess, userNumber, onGameOver]);
 
   const nextGuessHandler = (direction) => {
     if (
@@ -59,18 +57,22 @@ const GameScreen = ({ userNumber, onGameOver }) => {
     <View style={styles.screen}>
       <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
-      <View>
-        <Text>Higher or Lower?</Text>
-        <View>
-          <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
-            -
-          </PrimaryButton>
-          <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
-            +
-          </PrimaryButton>
+      <Card>
+        <InstructionText style={styles.instructionText}>Higher or Lower?</InstructionText>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
+              +
+            </PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
+              -
+            </PrimaryButton>
+          </View>
         </View>
         {/* + - */}
-      </View>
+      </Card>
       {/* <View>Log Rounds</View> */}
     </View>
   );
@@ -80,6 +82,15 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 12,
+  },
+  instructionText:{
+    marginBottom: 12
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+  },
+  buttonContainer: {
+    flex: 1,
   },
 });
 
