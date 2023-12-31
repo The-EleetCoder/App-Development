@@ -2,3 +2,5 @@ If we want to add a shadow, we can use the elevation property, but its only spec
 We Wrap our content in the <SafeAreaView> component so that our content dosen't get hidden by the notch. Do npm install react-native-safe-area-context.
 If you want to use Icons in your project, you can import them from '@expo/vevtor-icons'.
 If you want to use different fonts, run this command in the terminal -> expo install expo-font
+Use Dimensions api to find the width or height of the different devices you are on.
+Dynamic usage of the Dimensions api ---> const {width, height} = useWindowDimensions();
