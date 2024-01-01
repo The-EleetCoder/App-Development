@@ -4,3 +4,5 @@ If you want to use Icons in your project, you can import them from '@expo/vevtor
 If you want to use different fonts, run this command in the terminal -> expo install expo-font
 Use Dimensions api to find the width or height of the different devices you are on.
 Dynamic usage of the Dimensions api ---> const {width, height} = useWindowDimensions();
+keyboardAvoidingView is used with scrollView, so that the content moves upwards when the keyboard appears.
+The platform api allows us to detect on which platform we are running.
