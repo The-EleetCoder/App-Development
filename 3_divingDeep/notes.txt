@@ -6,3 +6,5 @@ Use Dimensions api to find the width or height of the different devices you are 
 Dynamic usage of the Dimensions api ---> const {width, height} = useWindowDimensions();
 keyboardAvoidingView is used with scrollView, so that the content moves upwards when the keyboard appears.
 The platform api allows us to detect on which platform we are running.
+We can also write platform specific files. Like if we want to write Title.js only for android, we can rename that file to Title.android.js
+If we want to change the statusbar, we can use the statusbar component and make to to light or dark or system.
