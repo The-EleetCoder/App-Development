@@ -3,13 +3,20 @@ import React from "react";
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTile from "../components/CategoryGridTile";
 
-export default function CategoriesScreen({navigation}) {
+export default function CategoriesScreen({ navigation }) {
   function renderCategoryItem(itemData) {
     const pressHandler = () => {
-      navigation.navigate('MealsOverview');
-    }
+      navigation.navigate("MealsOverview", {
+        categoryId: itemData.item.id,
+        
+      });
+    };
     return (
-      <CategoryGridTile title={itemData.item.title} color={itemData.item.color} onPress={pressHandler} />
+      <CategoryGridTile
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onPress={pressHandler}
+      />
     );
   }
   return (
