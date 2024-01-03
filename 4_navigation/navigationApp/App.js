@@ -1,12 +1,19 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import UserScreen from './screens/UserScreen';
+import WelcomeScreen from './screens/WelcomeScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="User">
+        <Drawer.Screen name="WelcomeScreen" component={WelcomeScreen} />
+        <Drawer.Screen name="User" component={UserScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 
