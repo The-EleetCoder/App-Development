@@ -5,9 +5,10 @@ import {
   StyleSheet,
   ScrollView,
   Button,
+  BackHandler
 } from "react-native";
 import React, { useContext } from "react";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useEffect } from "react";
 import MealDetails from "../components/MealDetails";
 import { MEALS } from "../data/dummy-data";
 import Subtitle from "../components/MealDetail/Subtitle";
@@ -31,6 +32,18 @@ export default function MealDetailScreen({ route, navigation }) {
       favoriteMealsCtx.addFavorite(mealId);
     }
   };
+
+  // added to configure device back button using BackHandler
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      () => {
+        navigation.navigate('Drawer');
+        return true;
+      }
+    );
+    return () => backHandler.remove();
+  }, [navigation]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
