@@ -2,13 +2,25 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import { GlobalStyles } from "../../constants/styles";
 import { getFormattedDate } from "../../utils/date";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ExpenseItem({ description, amount, date }) {
+const navigation = useNavigation();
+
+  function expensePressHandler() {
+    navigation.navigate('ManageExpense');
+  }
+
   return (
-    <Pressable>
+    <Pressable
+      onPress={expensePressHandler}
+      style={({ pressed }) => pressed && styles.pressed}
+    >
       <View style={styles.expenseItem}>
         <View>
-          <Text style={[styles.textBase, styles.description]}>{description}</Text>
+          <Text style={[styles.textBase, styles.description]}>
+            {description}
+          </Text>
           <Text style={styles.textBase}>{getFormattedDate(date)}</Text>
         </View>
         <View style={styles.amountContainer}>
@@ -20,6 +32,9 @@ export default function ExpenseItem({ description, amount, date }) {
 }
 
 const styles = StyleSheet.create({
+  pressed: {
+    opacity: 0.75,
+  },
   expenseItem: {
     padding: 12,
     backgroundColor: GlobalStyles.colors.primary500,
@@ -30,28 +45,28 @@ const styles = StyleSheet.create({
     elevation: 3,
     shadowColor: GlobalStyles.colors.gray500,
     shadowRadius: 4,
-    shadowOffset: { width: 1, height:1},
+    shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.4,
   },
-  textBase:{
+  textBase: {
     color: GlobalStyles.colors.primary50,
   },
-  description:{
+  description: {
     fontSize: 16,
     marginBottom: 4,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
-  amountContainer:{
-    paddingHorizontal:12,
-    paddingVertical:4 ,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
+  amountContainer: {
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 4,
-    minWidth: 80
+    minWidth: 80,
   },
-  amount:{
+  amount: {
     color: GlobalStyles.colors.primary500,
-    fontWeight: 'bold'
-  }
+    fontWeight: "bold",
+  },
 });
