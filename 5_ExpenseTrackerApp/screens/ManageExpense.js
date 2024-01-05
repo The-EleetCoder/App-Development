@@ -26,10 +26,9 @@ export default function ManageExpense({ route, navigation }) {
   }
 
   function confirmHandler() {
-    if (isEditing){
+    if (isEditing) {
       expensesCtx.updateExpense();
-    }
-    else {
+    } else {
       expensesCtx.addExpense();
     }
     navigation.goBack();
