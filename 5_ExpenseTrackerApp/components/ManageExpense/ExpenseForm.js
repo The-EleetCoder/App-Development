@@ -63,7 +63,10 @@ export default function ExpenseForm({
     onSubmit(expenseData);
   }
 
-  const formIsInvalid = !inputs.amount.isValid || !inputs.date.isValid || !inputs.description.isValid;
+  const formIsInvalid =
+    !inputs.amount.isValid ||
+    !inputs.date.isValid ||
+    !inputs.description.isValid;
 
   return (
     <View style={styles.form}>
@@ -100,7 +103,11 @@ export default function ExpenseForm({
           value: inputs.description.value,
         }}
       />
-      {formIsInvalid && <Text style={styles.errorText}>Invalid input values - please check your entered data!</Text>}
+      {formIsInvalid && (
+        <Text style={styles.errorText}>
+          Invalid input values - please check your entered data!
+        </Text>
+      )}
       <View style={styles.buttons}>
         <Button mode="flat" onPress={onCancel} style={styles.button}>
           Cancel
@@ -131,10 +138,10 @@ const styles = StyleSheet.create({
   rowInput: {
     flex: 1,
   },
-  errorText:{
-    textAlign: 'center',
+  errorText: {
+    textAlign: "center",
     color: GlobalStyles.colors.error500,
-    margin: 8
+    margin: 8,
   },
   buttons: {
     flexDirection: "row",
