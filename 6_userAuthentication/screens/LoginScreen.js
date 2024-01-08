@@ -18,8 +18,8 @@ function LoginScreen() {
     }
     catch (err){
       Alert.alert('Authentication Failed!', 'Could not log you in. Please check your credentials and try again later.');
+      setIsAuthenticating(false);
     }
-    setIsAuthenticating(false);
   }
 
   if (isAuthenticating) {
