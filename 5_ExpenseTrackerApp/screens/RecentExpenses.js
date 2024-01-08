@@ -26,12 +26,12 @@ export default function RecentExpenses() {
     getExpenses();
   }, []);
 
-  function errorHandler(){
+  function errorHandler() {
     setError(null);
   }
 
-  if (error && !isFetching){
-    return <ErrorOverlay message={error} onConfirm={errorHandler} />
+  if (error && !isFetching) {
+    return <ErrorOverlay message={error} onConfirm={errorHandler} />;
   }
 
   if (isFetching) {
