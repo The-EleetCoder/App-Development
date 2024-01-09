@@ -5,3 +5,14 @@ Install Node.js
 Use 'npx create-expo-app' to create a new app.
 Run 'npm start' to start your app. 
 Install Expo go on your device and scan the QR code.
+
+Publishing ->
+
+(Android)
+follow the documentation for config. changes in app.json and eas.json.
+npm install -g eas-cli
+eas login
+eas build:configure
+eas build -p android --profile preview
+click the link and install the app ->
+https://expo.dev/accounts/jaijain/projects/mealsApp/builds/4a9573f4-9336-414d-9a11-a19c4bca5e1f
