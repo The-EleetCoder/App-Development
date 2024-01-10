@@ -27,7 +27,20 @@ export default function App() {
     requestPermissions();
   }, []); // Run this effect only once when the component mounts
 
+  useEffect(()=>{
+    const subscription1 = Notifications.addNotificationReceivedListener((notification)=>{
+      console.log("S1------>",notification)
+    });
 
+    const subscription2 = Notifications.addNotificationResponseReceivedListener((response)=>{
+      console.log(response)
+    })
+
+    return () => {
+      subscription1.remove();
+      subscription2.remove();
+    };
+  }, []);
 
   function scheduleNotificationHandler() {
     Notifications.scheduleNotificationAsync({
